@@ -18,17 +18,16 @@ class EtionBannerController extends ControllerBase {
   }
 
   public function process(string $banner_title) {
-    $this->etionBanner->getUrl($banner_title);
     if (strpos($banner_title, '.jpg') === FALSE) {
-      $url = 'https://www.etion.be/kennis/z-extra-geert-janssens-over-onze-concurrentiekracht';
+      $url = $this->etionBanner->getUrl($banner_title);
       return new TrustedRedirectResponse($url);
     }
     else {
-      $filepath = 'https://www.etion.be/sites/default/files/styles/persoon_square/public/2024-09/Z-extra-Geert-Janssens-concurrentiekracht-1366.jpg';
+      $image = $this->etionBanner->getImage($banner_title);
 
       $response = new Response();
       $response->headers->set('Content-Type', 'image/jpeg');
-      $response->setContent(file_get_contents($filepath));
+      $response->setContent($image);
 
       return $response;
     }
