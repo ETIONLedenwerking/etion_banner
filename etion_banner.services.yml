@@ -1,0 +1,3 @@
+services:
+  etion_banner.banner:
+    class: Drupal\etion_banner\EtionBanner

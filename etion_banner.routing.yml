@@ -1,0 +1,12 @@
+etion_banner.path:
+  path: '/banner/{banner_title}'
+  defaults:
+    _title: 'Banner'
+    _controller: Drupal\etion_banner\Controller\EtionBannerController::process
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE
+    parameters:
+      banner_title:
+        type: string

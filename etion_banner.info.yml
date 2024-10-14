@@ -1,0 +1,5 @@
+name: Etion Banner
+description: handle banner hyperlinks
+package: Etion
+type: module
+core_version_requirement: ^9 || ^10 || ^11
